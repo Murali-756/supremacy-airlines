@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Passenger Details</h2>
+    <div>
+      <label for="seatId">Enter Bookingseat ID:</label>
+      <input type="number" id="seatId" [(ngModel)]="selectedSeatId" />
+      <button (click)="getPassengersBySeatId()">Get Passengers</button>
+    </div>
+    
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  
+    <table class="table mt-3" *ngIf="passengers.length">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>PhoneNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let passenger of passengers">
+          <td>{{ passenger.id }}</td>
+          <td>{{ passenger.name }}</td>
+          <td>{{ passenger.email }}</td>
+          <td>{{ passenger.phoneNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!passengers.length && !errorMessage">No passengers found.</div>
+  </div>
+  

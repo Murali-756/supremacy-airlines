@@ -1,0 +1,31 @@
+<div style="background-image: url('/images/save.jpg');background-repeat: no-repeat;
+  background-size: cover;">
+<div class="head">
+  <h2>Booking Form</h2>
+  <form (ngSubmit)="createBooking()">
+    Flight Id:
+    <input type="number" placeholder="Flight ID" [(ngModel)]="booking.flightId" name="flightId" required />
+    Number of seats:
+    <input type="number" placeholder="Number of Seats" [(ngModel)]="booking.numberOfSeats" name="numberOfSeats" required />
+    Adult Passenger:
+    <input type="number" placeholder="Adult Passengers" [(ngModel)]="booking.adultPassengers" name="adultPassengers" required />
+    Child Passenger:
+    <input type="number" placeholder="Child Passengers" [(ngModel)]="booking.childPassengers" name="childPassengers" required />
+    Infant Passenger:
+    <input type="number" placeholder="Infant Passengers" [(ngModel)]="booking.infantPassengers" name="infantPassengers" required />
+    Date:
+    <input type="datetime-local" [(ngModel)]="booking.bookingDate" name="bookingDate" required />
+    <button type="submit">Create Booking</button>
+  </form>
+
+  <div>
+    <input type="number" [(ngModel)]="bookingId" placeholder="Enter Booking ID" />
+    <button (click)="deleteBooking()">Delete Booking</button>
+   
+  </div>
+  <div *ngIf="message">
+    <p>{{message}}</p>
+  </div>
+  
+</div>
+</div>

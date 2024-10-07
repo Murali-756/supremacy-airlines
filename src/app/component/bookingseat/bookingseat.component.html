@@ -1,0 +1,55 @@
+
+<form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <label for="flightId">Flight ID:</label>
+    <input id="flightId" formControlName="flightId" required>
+  
+    <div formArrayName="passengers">
+      <div *ngFor="let passenger of passengers.controls; let i = index" [formGroupName]="i">
+        <h4>Passenger {{ i + 1 }}</h4>
+  
+        <label for="seatNumber">Seat Number:</label>
+        <input id="seatNumber" formControlName="seatNumber" required>
+  
+        <label for="passengerName">Passenger Name:</label>
+        <input id="passengerName" formControlName="passengerName" required>
+  
+        <label for="passengerEmail">Passenger Email:</label>
+        <input id="passengerEmail" formControlName="passengerEmail" required>
+  
+        <label for="passengerPhoneNumber">Passenger Phone Number:</label>
+        <input id="passengerPhoneNumber" formControlName="passengerPhoneNumber" required>
+  
+        <button type="button" (click)="removePassenger(i)">Remove Passenger</button>
+      </div><br>
+    </div>
+  
+    <button type="button" (click)="addPassenger()">Add Another Passenger</button><br>
+    <button type="submit">Book Seats</button>
+  </form>
+  <div *ngIf="message" class="error">
+    <p>Message: {{message }}</p>
+  </div>
+  
+  <div *ngIf="bookingResponse">
+    <h3>Booking Status: {{ bookingResponse.status }}</h3>
+    <p>Total Amount: {{ bookingResponse.totalAmount }}</p>
+    <div *ngFor="let seat of bookingResponse.bookedSeats">
+      <p>
+        <strong>Seat Number:</strong> {{ seat.seatNumber }} |
+        <strong>Status:</strong> {{ seat.bookingStatus }}
+      </p>
+      <div *ngIf="seat.passenger">
+        <p>
+          <strong>Passenger Name:</strong> {{ seat.passenger.name }} |
+          <strong>Email:</strong> {{ seat.passenger.email }} |
+          <strong>Phone:</strong> {{ seat.passenger.phoneNumber }}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="errorMessage" class="error">
+    <p>Error: {{ errorMessage }}</p>
+  </div>
+  
+  

@@ -1,0 +1,23 @@
+<div class="container">
+  <!-- <h2>Add Seats</h2>
+    <button (click)="addSeats()">Add Seats</button>
+   
+    <input type="number" [(ngModel)]="flightId" placeholder="Flight ID" />
+
+    <div *ngFor="let seat of newSeats; let i = index" class="seat-input">
+        <input [(ngModel)]="seat.seatNumber" placeholder="Seat Number" />
+        <input type="checkbox" [(ngModel)]="seat.isAvailable" /> Available
+    </div>--> 
+    
+    <h3>Current Seats:</h3>
+    <ul>
+        <input type="number" [(ngModel)]="flightId" placeholder="Flight ID" />
+        <li *ngFor="let seat of seats">
+            {{ seat.seatNumber }} - {{ seat.isAvailable ? 'Available' : 'Not Available' }}
+        </li>
+    </ul>
+    
+    <button (click)="getSeats()">Get Seats</button>
+    
+   
+</div>

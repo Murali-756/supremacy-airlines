@@ -1,0 +1,78 @@
+body {
+  background-color: #f0f4f8; /* Light background color */
+  font-family: 'Arial', sans-serif; /* Consistent font */
+}
+
+.registration-container {
+  width: 100%;
+  max-width: 400px; /* Max width for the registration form */
+  margin: auto; /* Center the form */
+  padding: 20px; /* Padding inside the container */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #ffffff; /* White background for forms */
+}
+
+h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Space below the heading */
+  color: #333; /* Dark text color */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space below each form group */
+}
+
+label {
+  font-weight: bold; /* Bold labels */
+  color: #555; /* Darker color for labels */
+}
+
+.form-control {
+  width: 100%; /* Full width for input fields */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ced4da; /* Default border color */
+  border-radius: 5px; /* Rounded corners for input fields */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light shadow on focus */
+}
+
+.error {
+  color: red; /* Error messages color */
+  font-size: 0.9em; /* Smaller font for error messages */
+  margin-top: 5px; /* Space above error messages */
+}
+
+.btn-register {
+  padding: 10px; /* Padding for button */
+  width: 100%; /* Full width for button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #007bff; /* Primary button color */
+  color: white; /* White text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-register:disabled {
+  background-color: #ccc; /* Grey background when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+
+.success-message {
+  margin-top: 20px; /* Space above success message */
+  color: green; /* Green text for success messages */
+  font-size: 1em; /* Normal font size */
+  text-align: center; /* Center the message */
+}
+
+@media (max-width: 576px) {
+  .registration-container {
+      padding: 15px; /* Adjust padding for smaller screens */
+      width: 90%; /* Full width on smaller screens */
+  }
+}

@@ -1,0 +1,44 @@
+<nav class="navbar">
+    <ul class="nav-list">
+      <ng-container>
+
+         <!--Menu Display After login-->
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/search">Flight Search</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/bookings">Add Booking</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/add-seats">Search Seats</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/book">Book Seats</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/payment">Payment</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/flight" >Passengers</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isUserLoggedIn" routerLink="/logout" (click)="handleLogout()">Logout</a>
+        </li>
+       
+
+     <!--Menu Display before login-->
+     <li class="nav-item">
+      <a *ngIf="!isUserLoggedIn" routerLink="/home">Home</a>
+    </li>
+        <li class="nav-item">
+          <a *ngIf="!isUserLoggedIn" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isUserLoggedIn" routerLink="/login">Login</a>
+        </li>
+      </ng-container>
+      <li class="nav-item">
+        <a *ngIf="!isUserLoggedIn" routerLink="/aboutus">About Us</a>
+      </li>
+    </ul>
+  </nav>

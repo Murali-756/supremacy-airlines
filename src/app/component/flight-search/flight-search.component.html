@@ -1,0 +1,45 @@
+<div style="background-image: url('/images/flight search.jpg');background-repeat: no-repeat;
+  background-size: cover;">
+<div>
+  <div style="background-image: url('/images/flight search.jpg');background-repeat: no-repeat;
+  background-size: cover;">
+    <h2>Search Flights</h2>
+    <form (ngSubmit)="searchFlights()">
+      <label>
+        Source:
+        <input [(ngModel)]="source" name="source" required>
+       
+      </label>
+      <label>
+        Destination:
+        <input [(ngModel)]="destination" name="destination" required>
+      </label>
+      <label>
+        Departure Date:
+        <input [(ngModel)]="departureDate" type="date" name="departureDate" required>
+      </label>
+      <label>
+        Return Date:
+        <input [(ngModel)]="returnDate" type="date" name="returnDate">
+      </label>
+      <button type="submit">Search</button>
+    </form>
+    <div *ngIf="message">{{ message }}</div>
+    <ul>
+      <li *ngFor="let flight of flights">
+       
+            <h4>{{ flight.id }}</h4>
+            <p><strong>Flight Number</strong>{{ flight.flightNumber }}</p>
+            <p><strong>Source:</strong> {{ flight.source }}</p>
+            <p><strong>Destination:</strong> {{ flight.destination }}</p>
+            <p><strong>Departure Date:</strong> {{ flight.departureDate }}</p>
+            <p><strong>Return Date:</strong> {{ flight.returnDate }}</p>
+            <p><strong>Fare:</strong> ${{ flight.fare }}</p>
+            <p><strong>Class:</strong> {{ flight.flightClass }}</p>
+          
+      </li>
+    </ul>
+    </div>
+  
+  
+  

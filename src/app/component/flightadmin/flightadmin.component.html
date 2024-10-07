@@ -1,0 +1,69 @@
+<div class="container">
+    <h2>Admin Flight Management</h2>
+  
+    <h3>Add Flight</h3>
+    <form (ngSubmit)="addFlight()">
+       
+      <div>
+        <label for="flightNumber">Flight Number:</label>
+        <input id="flightNumber" [(ngModel)]="newFlight.flightNumber" name="flightNumber" required />
+      </div>
+      <div>
+        <label for="source">Source:</label>
+        <input id="source" [(ngModel)]="newFlight.source" name="source" required />
+      </div>
+      <div>
+        <label for="destination">Destination:</label>
+        <input id="destination" [(ngModel)]="newFlight.destination" name="destination" required />
+      </div>
+      <div>
+        <label for="departureDate">Departure Date:</label>
+        <input id="departureDate" type="date" [(ngModel)]="newFlight.departureDate" name="departureDate" required />
+      </div>
+      <div>
+        <label for="returnDate">Return Date:</label>
+        <input id="returnDate" type="date" [(ngModel)]="newFlight.returnDate" name="returnDate" />
+      </div>
+      <div>
+        <label for="availableSeats">Available Seats:</label>
+        <input id="availableSeats" type="number" [(ngModel)]="newFlight.availableSeats" name="availableSeats" required />
+      </div>
+      <div>
+        <label for="fare">Fare:</label>
+        <input id="fare" type="number" [(ngModel)]="newFlight.fare" name="fare" required />
+      </div>
+      <div>
+        <label for="flightClass">Flight Class:</label>
+        <select id="flightClass" [(ngModel)]="newFlight.flightClass" name="flightClass">
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+        </select>
+    </div>
+      <button type="submit">Add Flight</button>
+    </form>
+    
+   
+    
+  
+    <h3 (click)="toggleFlightList()" style="cursor: pointer; color: blue;">View Flights</h3>
+
+    <div *ngIf="showFlightList" class="flight-list">
+      <div *ngFor="let flight of flights" class="flight-card">
+        <div class="flight-details">
+          <h4>{{ flight.id }}</h4>
+          <p><strong>Flight Number</strong>{{ flight.flightNumber }}</p>
+          <p><strong>Source:</strong> {{ flight.source }}</p>
+          <p><strong>Destination:</strong> {{ flight.destination }}</p>
+          <p><strong>Departure Date:</strong> {{ flight.departureDate }}</p>
+          <p><strong>Return Date:</strong> {{ flight.returnDate }}</p>
+          <p><strong>Fare:</strong> ${{ flight.fare }}</p>
+          <p><strong>Class:</strong> {{ flight.flightClass }}</p>
+        </div>
+        <button (click)="deleteFlight(flight.id)" class="delete-button">Delete</button>
+
+      </div>
+    </div>
+     <!-- Cancel Button -->
+   <button (click)="cancel()" class="btn-cancel">logout</button>
+      
+  

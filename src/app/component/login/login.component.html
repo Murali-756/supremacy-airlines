@@ -1,0 +1,84 @@
+<div class="login-container">
+    <div class="tabs">
+      <!-- Toggle buttons to switch between User Login and Admin Login -->
+      <button (click)="showUserLogin()" [class.active]="isUserLogin">User Login</button>
+      <button (click)="showAdminLogin()" [class.active]="!isUserLogin">Admin Login</button>
+    </div>
+  
+    <div class="login-form">
+      <!-- User Login Form -->
+      <form *ngIf="isUserLogin" [formGroup]="userLoginForm" (ngSubmit)="onUserLoginSubmit()">
+        <h3>User Login</h3>
+        <div class="form-group">
+          <label for="email">Email</label><br>
+          <input type="email" id="email" formControlName="email" class="form-control" />
+          <div *ngIf="userLoginForm.get('email')?.invalid && userLoginForm.get('email')?.touched">
+            Please enter a valid email.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label><br>
+          <input type="password" id="password" formControlName="password" class="form-control" /><br>
+          <div *ngIf="userLoginForm.get('password')?.invalid && userLoginForm.get('password')?.touched">
+            Password is required.
+          </div>
+        </div>
+  <br>
+        <button type="submit" class="btn-login" [disabled]="userLoginForm.invalid">Login</button>
+        <div class="extra-options">
+         <a (click)="redirectToSignup()">Signup</a> |
+        <a (click)="redirectToForgotPassword()">Forgot Password?</a>
+        </div>
+      </form>
+  <br><br>
+      <!-- Admin Login Form -->
+      <form *ngIf="!isUserLogin" [formGroup]="adminLoginForm" (ngSubmit)="onAdminLoginSubmit()">
+        <h3>Admin Login</h3>
+        <div class="form-group">
+          <label for="adminUsername">Admin Username</label>
+          <input type="text" id="adminUsername" formControlName="adminUsername" class="form-control" />
+          <div *ngIf="adminLoginForm.get('adminUsername')?.invalid && adminLoginForm.get('adminUsername')?.touched">
+            Username is required.
+          </div>
+        </div>
+  <br>
+        <div class="form-group">
+          <label for="adminPassword">Admin Password</label>
+          <input type="password" id="adminPassword" formControlName="adminPassword" class="form-control" />
+          <div *ngIf="adminLoginForm.get('adminPassword')?.invalid && adminLoginForm.get('adminPassword')?.touched">
+            Password is required.
+          </div>
+        </div>
+  <br>
+        <button type="submit" class="btn-login" [disabled]="adminLoginForm.invalid">Login</button>
+      </form>
+
+       <!-- Forgot Password Form -->
+       <form *ngIf="isForgotPassword" [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPasswordSubmit()">
+        <h3>Forgot Password</h3>
+        <div class="form-group">
+          <label for="username">Enter Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control" />
+        </div>
+        <button type="submit" class="btn-login" [disabled]="forgotPasswordForm.invalid">Reset Password</button>
+      </form>
+
+      <!-- Reset Password Form -->
+      <form *ngIf="isResetPassword" [formGroup]="resetPasswordForm" (ngSubmit)="onResetPasswordSubmit()">
+        <h3>Reset Password</h3>
+        <div class="form-group">
+          <label for="token">Token</label>
+          <input type="text" id="token" formControlName="token" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" formControlName="newPassword" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn-login" [disabled]="resetPasswordForm.invalid">Update Password</button>
+      </form>
+    </div>
+  </div>
+  

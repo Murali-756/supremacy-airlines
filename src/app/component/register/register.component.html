@@ -1,0 +1,79 @@
+<div class="registration-container">
+    <h2>Register Now</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <select id="title" formControlName="title" class="form-control">
+          <option value="" disabled>Select Title</option>
+          <option value="Mr">Mr</option>
+          <option value="Ms">Ms</option>
+        </select>
+        <div *ngIf="registrationForm.get('title')?.invalid && registrationForm.get('title')?.touched" class="error">
+          Title is required.
+        </div>
+      </div>
+  
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+        <div *ngIf="registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched" class="error">
+          First Name is required and must be at least 2 characters.
+        </div>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+        <div *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched" class="error">
+          Last Name is required and must be at least 2 characters.
+        </div>
+      </div>
+  
+      <!-- Date of Birth -->
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control" />
+        <div *ngIf="registrationForm.get('dateOfBirth')?.invalid && registrationForm.get('dateOfBirth')?.touched" class="error">
+          Date of Birth is required.
+        </div>
+      </div>
+  
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" />
+        <div *ngIf="registrationForm.get('phoneNumber')?.invalid && registrationForm.get('phoneNumber')?.touched" class="error">
+          A valid 10-digit Phone Number is required.
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+        <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error">
+          A valid Email is required.
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control" />
+        <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="error">
+          Password is required and must be at least 6 characters.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn-register" [disabled]="registrationForm.invalid">Register Now</button>
+    </form>
+  
+    <!-- Display success message -->
+    <div *ngIf="message" class="success-message">
+      {{ message }}
+    </div>
+  </div>
+  

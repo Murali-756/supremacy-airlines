@@ -1,0 +1,74 @@
+/* Container styles */
+head {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  div {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+  
+  /* Heading styles */
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Input field styles */
+  input[type="number"],
+  input[type="datetime-local"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="number"]:focus,
+  input[type="datetime-local"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Button styles */
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message styles */
+  p {
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Retrieved Booking styles */
+  h3 {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+  }
+  

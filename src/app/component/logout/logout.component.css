@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #4511e2;
+  }
+  
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  img {
+    width: 200px; /* reduce the size of the image */
+    height: 200px;
+    border-radius: 10%;
+    object-fit: cover;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color:rgb(116, 21, 217);
+  }

@@ -1,0 +1,74 @@
+
+<div class="payment-container">
+    <h2>Payment Form</h2>
+  
+    <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
+      <!-- Payment Type Selection -->
+      <div class="form-group">
+        <label for="paymentType">Payment Type</label>
+        <select id="paymentType" [(ngModel)]="paymentRequest.paymentType" name="paymentType" (change)="onPaymentTypeChange()"
+          required>
+          <option value="">Select Payment Type</option>
+          <option value="UPI">UPI</option>
+          <option value="CARD">Card</option>
+        </select>
+      </div>
+  
+      <!-- UPI Payment Fields -->
+      <div *ngIf="paymentRequest.paymentType === 'UPI'" class="upi-fields">
+        <div class="form-group">
+          <label for="upiId">UPI ID</label>
+          <input type="text" id="upiId" [(ngModel)]="paymentRequest.upiId" name="upiId" placeholder="Enter UPI ID"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" [(ngModel)]="paymentRequest.amount" name="amount" placeholder="Enter Amount"
+            required>
+        </div>
+      </div>
+  
+      <!-- Card Payment Fields -->
+      <div *ngIf="paymentRequest.paymentType === 'CARD'" class="card-fields">
+        <div class="credit-card">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" [(ngModel)]="paymentRequest.cardNumber" name="cardNumber"
+              placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" id="expiryDate" [(ngModel)]="paymentRequest.expiryDate" name="expiryDate"
+              placeholder="MM/YY" maxlength="5" required>
+          </div>
+  
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" [(ngModel)]="paymentRequest.cvv" name="cvv" maxlength="3" placeholder="CVV"
+              required>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" [(ngModel)]="paymentRequest.amount" name="amount" placeholder="Enter Amount"
+            required>
+        </div>
+      </div>
+  
+      <!-- Pay Button -->
+      <div class="form-group">
+        <button type="submit" [disabled]="!paymentForm.form.valid">Pay</button>
+      </div>
+    </form>
+  
+    <!-- Payment Response Display -->
+    <div *ngIf="paymentResponse">
+      <h3>Payment Response</h3>
+      <p>Success: {{ paymentResponse.success }}</p>
+      <p>Message: {{ paymentResponse.message }}</p>
+      <p>Transaction ID: {{ paymentResponse.transactionId }}</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,90 @@
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  background-color: #514caf;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background-color: #4f3e8e;
+}
+
+.tabs button:hover {
+  background-color: #433e8e;
+}
+
+.login-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #3e8e41;
+}
+
+.extra-options {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.extra-options a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+.extra-options a:hover {
+  color: #23527c;
+}
